@@ -1,0 +1,15 @@
+<form [formGroup]="form" class="container mt-5">
+  <div class="mb-3">
+    <label for="login" class="form-label">Login</label>
+    <input formControlName="login" type="login" class="form-control" id="login" aria-describedby="loginHelp" />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input formControlName="password" type="password" class="form-control" id="password" />
+  </div>
+  <div class="mb-3 form-check">
+    <input formControlName="terms" type="checkbox" class="form-check-input" id="terms" />
+    <label class="form-check-label" for="terms">Accept terms</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
