@@ -11,4 +11,6 @@ export class AppComponent {
     password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
     terms: new FormControl(false, [Validators.requiredTrue]),
   });
+
+  sendForm() {}
 }

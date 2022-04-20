@@ -1,15 +1,22 @@
 <form [formGroup]="form" class="container mt-5">
   <div class="mb-3">
     <label for="login" class="form-label">Login</label>
-    <input formControlName="login" type="login" class="form-control" id="login" aria-describedby="loginHelp" />
+    <input
+      formControlName="login"
+      type="login"
+      class="form-control"
+      id="login"
+      aria-describedby="loginHelp"
+      autocomplete="off"
+    />
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input formControlName="password" type="password" class="form-control" id="password" />
+    <input formControlName="password" type="password" class="form-control" id="password" autocomplete="off" />
   </div>
   <div class="mb-3 form-check">
-    <input formControlName="terms" type="checkbox" class="form-check-input" id="terms" />
+    <input formControlName="terms" type="checkbox" class="form-check-input" id="terms" autocomplete="off" />
     <label class="form-check-label" for="terms">Accept terms</label>
   </div>
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button (click)="sendForm()" type="submit" class="btn btn-primary">Send form</button>
 </form>
