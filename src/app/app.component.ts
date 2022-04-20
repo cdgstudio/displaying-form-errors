@@ -18,6 +18,6 @@ export class AppComponent {
 
   displayError(controlName: string, error: string) {
     const control = this.form.get(controlName)!;
-    return control.hasError(error);
+    return control.hasError(error) && (control.dirty || control.touched);
   }
 }
