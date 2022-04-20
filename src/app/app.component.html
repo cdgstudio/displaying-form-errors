@@ -10,26 +10,28 @@
       autocomplete="off"
     />
 
-    <label *ngIf="login.hasError('required')" for="login" class="invalid-feedback d-block"> Login is required </label>
-    <label *ngIf="login.hasError('minlength')" for="login" class="invalid-feedback d-block">
-      Login must be at least {{ login.getError('minlength').requiredLength }} characters long
+    <label *ngIf="displayError('login', 'required')" for="login" class="invalid-feedback d-block">
+      Login is required
+    </label>
+    <label *ngIf="displayError('login', 'minlength')" for="login" class="invalid-feedback d-block">
+      Login must be at least {{ form.getError('minlength', 'login').requiredLength }} characters long
     </label>
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>
     <input formControlName="password" type="password" class="form-control" id="password" autocomplete="off" />
 
-    <label *ngIf="password.hasError('required')" for="password" class="invalid-feedback d-block">
+    <label *ngIf="displayError('password', 'required')" for="password" class="invalid-feedback d-block">
       Password is required
     </label>
-    <label *ngIf="password.hasError('minlength')" for="password" class="invalid-feedback d-block">
-      Password must be at least {{ password.getError('minlength').requiredLength }} characters long
+    <label *ngIf="displayError('password', 'minlength')" for="password" class="invalid-feedback d-block">
+      Password must be at least {{ form.getError('minlength', 'password').requiredLength }} characters long
     </label>
   </div>
   <div class="mb-3 form-check">
     <input formControlName="terms" type="checkbox" class="form-check-input" id="terms" autocomplete="off" />
     <label class="form-check-label" for="terms">Accept terms</label>
-    <label *ngIf="terms.hasError('required')" for="terms" class="invalid-feedback d-block">
+    <label *ngIf="displayError('terms', 'required')" for="terms" class="invalid-feedback d-block">
       You must accept terms
     </label>
   </div>

@@ -12,19 +12,12 @@ export class AppComponent {
     terms: new FormControl(false, [Validators.requiredTrue]),
   });
 
-  get login() {
-    return this.form.get('login')!;
-  }
-
-  get password() {
-    return this.form.get('password')!;
-  }
-
-  get terms() {
-    return this.form.get('terms')!;
-  }
-
   sendForm() {
     alert('Form was sent');
+  }
+
+  displayError(controlName: string, error: string) {
+    const control = this.form.get(controlName)!;
+    return control.hasError(error);
   }
 }
