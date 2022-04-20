@@ -12,5 +12,7 @@ export class AppComponent {
     terms: new FormControl(false, [Validators.requiredTrue]),
   });
 
-  sendForm() {}
+  sendForm() {
+    alert('Form was sent');
+  }
 }
