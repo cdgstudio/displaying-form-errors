@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: `./app.component.html`,
 })
 export class AppComponent {
+  @ViewChild(FormGroupDirective, { static: true }) formDirective!: FormGroupDirective;
+
   form = new FormGroup({
     login: new FormControl(null, [Validators.required, Validators.minLength(3)]),
     password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
@@ -17,7 +19,6 @@ export class AppComponent {
   }
 
   displayError(controlName: string, error: string) {
-    const control = this.form.get(controlName)!;
-    return control.hasError(error);
+    return this.formDirective.submitted && this.form.get(controlName)!.hasError(error);
   }
 }
