@@ -15,6 +15,10 @@ export class AppComponent {
   });
 
   sendForm() {
+    if (false === this.form.valid) {
+      return;
+    }
+
     alert('Form was sent');
   }
 
